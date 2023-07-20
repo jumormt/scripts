@@ -1,14 +1,15 @@
 # Some useful scripts
 
-## [Collect time and memory of a process](https://github.com/jumormt/scripts/blob/main/tm)
 
-> ubuntu
-
-- Give the script execution permission:
+- For ubuntu, give the script execution permission:
 
 ```sh
-chmod +x tm
+chmod +x script
 ```
+
+e.g., `chmod +x tm`
+
+## [Collect time and memory of a process](https://github.com/jumormt/scripts/blob/main/tm)
 
 - Use the script:
 
@@ -25,3 +26,14 @@ nohup ./tm your_commind_line > your_log &
 ```
 
 e.g. `nohup ./tm saber -leak -stat=false saber.bc  > saber.log &`
+
+## [gitsearch](https://github.com/jumormt/scripts/blob/main/gitsearch)
+
+- enter the root of the git repo
+- gitsearch
+
+```sh
+./gitsearch overflow|null
+```
+
+It will print the commits containing the keywords and write to "overflow.commits" or "null.commits"

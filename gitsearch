@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+import sys
+import subprocess
+
+def process(patterns):
+    for i, pattern in enumerate(patterns):
+            patterns[i] = '--grep=' + pattern
+    git_command = ['git', 'log'] + patterns
+    result = subprocess.run(git_command, capture_output=True, text=True)
+    stdout = result.stdout
+    print(stdout)
+    return stdout
+    
+     
+def main():
+    if len(sys.argv) != 2:
+        print("Usage: ./gitsearch overflow|null")
+        return
+    if(sys.argv[1] == "overflow"):
+        patterns = ['overflow', 'overrun', 'bound']
+        stdout = process(patterns)
+        with open("overflow.commits", "w") as f:
+            f.write(stdout)
+    elif (sys.argv[1] == "null"):
+        patterns = ['null', 'NPD']
+        stdout = process(patterns)
+        with open("null.commits", "w") as f:
+            f.write(stdout)
+    else:
+         pass
+
+if __name__ == "__main__":
+    main()
+    

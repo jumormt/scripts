@@ -16,8 +16,12 @@ chmod +x tm
 ./tm your_commind_line
 ```
 
+e.g. `./tm saber -leak -stat=false saber.bc`
+
 alternatively, run in background and record in `your_log`:
 
 ```sh
 nohup ./tm your_commind_line > your_log &
 ```
+
+e.g. `nohup ./tm saber -leak -stat=false saber.bc  > saber.log &`

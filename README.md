@@ -4,10 +4,20 @@
 
 > ubuntu
 
+- Give the script execution permission:
+
 ```sh
 chmod +x tm
 ```
 
+- Use the script:
+
 ```sh
-./tm your script
+./tm your_commind_line
+```
+
+alternatively, run in background and record in `your_log`:
+
+```sh
+nohup ./tm your_commind_line > your_log &
 ```

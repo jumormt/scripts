@@ -47,7 +47,11 @@ def run_process_and_get_peak_memory(command):
     process = subprocess.Popen(command, shell=True)
     
     # 获取进程的PID
-    actual_process_pid = get_subprocess_actual_pid(process.pid)
+    # actual_process_pid = get_subprocess_actual_pid(process.pid)
+
+    # infer
+    actual_process_pid = process.pid + 1
+    time.sleep(5)
 
     actual_process = psutil.Process(actual_process_pid)
 
@@ -88,7 +92,7 @@ def run_process_and_get_peak_memory(command):
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python calcMem.py [command_to_run]")
+        print("Usage: ./tm [command_to_run]")
         return
     command = " ".join(sys.argv[1:])
     print(f"executing command: {command}")
